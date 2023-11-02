@@ -1,15 +1,15 @@
 import express from "express"
 import cors from "cors"
 import "dotenv/config"
-import { Db } from "./db/db"
+import {router} from "./routes/routes";
 
 const { API_PORT, API_HOST } = process.env
 
 const app = express()
+app.use(express.json())
 app.use(cors())
 
-
-Db.create({ name: "teste", price: 199 }, "tabelaProdutos").then(res => console.log(res))
+app.use(router)
 
 
 app.listen(API_PORT, () => {
