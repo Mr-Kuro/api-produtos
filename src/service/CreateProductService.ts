@@ -1,11 +1,5 @@
 import {Db} from "../db/db";
-
-interface ProductRequest {
-    nome: string;
-    descricao: string;
-    preco: number;
-    estoque: number;
-}
+import {ProductRequest} from "../interfaces/ProductInterface";
 
 export class CreateProductService {
     static async execute ({nome , descricao, preco, estoque}: ProductRequest) {

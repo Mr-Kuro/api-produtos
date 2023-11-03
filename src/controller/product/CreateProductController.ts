@@ -1,12 +1,25 @@
-import {Request, Response} from "express";
-import {CreateProductService} from "../../service/CreateProductService";
+import { NextFunction, Request, Response } from "express";
+import { CreateProductService } from "../../service/CreateProductService";
+import { ProductRequest } from "../../interfaces/ProductInterface";
+import { validationProductData } from "../../validation/validations";
 
 export class CreateProductController {
-    async handle(request: Request, response: Response) {
-        const {nome, descricao, preco, estoque} = request.body;
+  async handle(request: Request, response: Response, next: NextFunction) {
+    const requestBody: ProductRequest = request.body;
+    const { nome, descricao, preco, estoque } = request.body;
 
-        const product = await CreateProductService.execute({nome, descricao, preco, estoque});
+    const isValid = validationProductData(requestBody);
+    if (isValid instanceof Error) {
+      next(isValid);
+    } else {
+      const product = await CreateProductService.execute({
+        nome,
+        descricao,
+        preco,
+        estoque,
+      });
 
-        return response.json(product);
+      return response.json(product);
     }
+  }
 }
