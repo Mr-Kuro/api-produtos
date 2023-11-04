@@ -1,9 +1,9 @@
 import { faker } from "@faker-js/faker"
 
+export const tabelaProdutos = "tabelaProdutos"
 const db = {
     tabelaProdutos: []
 }
-
 
 export class Db {
     tabela
@@ -23,8 +23,8 @@ export class Db {
     }
 
     static async findById(id, tabela) {
-        const pessoa = db[tabela].find(pessoa => pessoa.id == id)
-        return Promise.resolve(pessoa)
+        const produto = db[tabela].find(produto => produto.id == id)
+        return Promise.resolve(produto)
     }
 
     static async find(tabela) {
@@ -32,7 +32,7 @@ export class Db {
     }
 
     static async update(id, dados, tabela) {
-        const index = db[tabela].findIndex(pessoa => pessoa.id == id)
+        const index = db[tabela].findIndex(produto => produto.id == id)
         db[tabela][index] = {
             ...dados,
             id: Number(id),
@@ -43,7 +43,7 @@ export class Db {
     }
 
     static async delete(id, tabela) {
-        const index = db[tabela].findIndex(pessoa => pessoa.id == id)
+        const index = db[tabela].findIndex(produto => produto.id == id)
         db[tabela].splice(index, 1)
         return Promise.resolve(db.tabelaProdutos)
     }
