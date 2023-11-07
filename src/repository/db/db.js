@@ -44,8 +44,8 @@ export class Db {
 
     static async delete(id, tabela) {
         const index = db[tabela].findIndex(produto => produto.id == id)
-        db[tabela].splice(index, 1)
-        return Promise.resolve(db.tabelaProdutos)
+        const deletedProduct = db[tabela].splice(index, 1)
+        return Promise.resolve(deletedProduct)
     }
 }
 

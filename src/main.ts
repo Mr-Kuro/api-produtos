@@ -10,6 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(router);
+
 app.use((error: any, request: Request, response: Response, next: NextFunction) => {
   response.status(error.status || 500);
   response.json({ error: error.message });

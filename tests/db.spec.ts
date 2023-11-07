@@ -1,4 +1,4 @@
-import { Db } from "../src/db/db.js"
+import { Db } from "../src/repository/db/db.js"
 
 
 describe("#Db testing case", () => {

@@ -1,5 +1,5 @@
-import { ProductRequest } from "../interfaces/ProductInterface";
-import { Db, tabelaProdutos } from "../db/db";
+import { ProductRequest } from "../types/ProductType";
+import { Db, tabelaProdutos } from "../repository/db/db";
 
 export function validationProductData(requestBody: ProductRequest) {
   if (

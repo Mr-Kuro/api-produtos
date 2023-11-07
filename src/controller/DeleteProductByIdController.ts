@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { DeleteProductByIdService } from "../../service/index";
-import { validationProductId } from "../../validation/validations";
+import { DeleteProductByIdService } from "../service/index";
+import { validationProductId } from "../validation/validations";
 
 export class DeleteProductByIdController {
   async handle(request: Request, response: Response, next: NextFunction) {

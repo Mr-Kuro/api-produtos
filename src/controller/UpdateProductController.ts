@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import { UpdateProductService } from "../../service/index";
-import { ProductRequest } from "../../interfaces/ProductInterface";
-import { validationProductUpdate } from "../../validation/validations";
+import { UpdateProductService } from "../service/index";
+import { ProductRequest } from "../types/ProductType";
+import { validationProductUpdate } from "../validation/validations";
 
 export class UpdateProductController {
   async handle(request: Request, response: Response, next: NextFunction) {

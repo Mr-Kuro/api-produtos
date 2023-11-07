@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { GetProductByIdService } from "../../service/index";
-import { validationProductId } from "../../validation/validations";
+import { GetProductByIdService } from "../service/index";
+import { validationProductId } from "../validation/validations";
 
 export class GetProductByIdController {
   async handle(request: Request, response: Response, next: NextFunction) {
